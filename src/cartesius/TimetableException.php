@@ -5,10 +5,8 @@ namespace timetables\cartesius;
 use Exception;
 
 /**
- * Class TimetableException
- * @package timetables
+ * Class TimetableException.
  */
 class TimetableException extends Exception
 {
-
 }

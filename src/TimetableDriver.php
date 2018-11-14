@@ -9,41 +9,39 @@ use timetables\cartesius\Dimensions;
 use timetables\cartesius\TimetableException;
 
 /**
- * Class TimetableDriver
- * @package timetables
+ * Class TimetableDriver.
  */
 class TimetableDriver
 {
+    /**
+     * @var Datum
+     */
+    public $criteriaX;
 
     /**
      * @var Datum
      */
-    var $criteriaX;
-
-    /**
-     * @var Datum
-     */
-    var $criteriaY;
+    public $criteriaY;
 
     /**
      * @var Dimensions
      */
-    var $dimenX;
+    public $dimenX;
 
     /**
      * @var Dimensions
      */
-    var $dimenY;
+    public $dimenY;
 
     /**
      * @var Cartesius
      */
-    var $cartesius;
+    public $cartesius;
 
     /**
      * @var Coordinates
      */
-    var $coordinate;
+    public $coordinate;
 
     public function __construct()
     {
@@ -55,27 +53,32 @@ class TimetableDriver
 
     /**
      * @param mixed $criteriaX
+     *
      * @return TimetableDriver
      */
     public function setCriteriaX($criteriaX)
     {
         $this->criteriaX = $criteriaX;
+
         return $this;
     }
 
     /**
      * @param mixed $criteriaY
+     *
      * @return TimetableDriver
      */
     public function setCriteriaY($criteriaY)
     {
         $this->criteriaY = $criteriaY;
+
         return $this;
     }
 
     /**
      * @param Datum $sampling
      * @param $index
+     *
      * @throws TimetableException
      */
     public function addDimenX(Datum $sampling, $index = null)
@@ -92,6 +95,7 @@ class TimetableDriver
     /**
      * @param Datum $sampling
      * @param $index
+     *
      * @throws TimetableException
      */
     public function addDimenY(Datum $sampling, $index = null)
@@ -128,20 +132,19 @@ class TimetableDriver
             $remark = 'CLEAR';
         }
 
-        return array(
-            'BestX' => $this->cartesius->lastBestX,
-            'BestY' => $this->cartesius->lastBestY,
-            'Criteria' => array(
+        return [
+            'BestX'    => $this->cartesius->lastBestX,
+            'BestY'    => $this->cartesius->lastBestY,
+            'Criteria' => [
                 'X' => $this->criteriaX->data,
                 'Y' => $this->criteriaY->data,
-            ),
-            'Result' => array(
+            ],
+            'Result' => [
                 'X' => $this->dimenX->get($this->cartesius->lastBestX)->data,
                 'Y' => $this->dimenY->get($this->cartesius->lastBestY)->data,
-            ),
+            ],
             'Iteration' => $this->cartesius->iteration,
-            'Remark' => $remark
-        );
+            'Remark'    => $remark,
+        ];
     }
-
 }

@@ -3,13 +3,9 @@
 namespace timetables\cartesius;
 
 /**
- * Interface Constraint
- * @package timetables
+ * Interface Constraint.
  */
 interface Constraint
 {
-
     public function CalculateFits(Datum $comparator);
-
-
 }
