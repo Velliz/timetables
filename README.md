@@ -51,7 +51,7 @@ for ($i = 0; $i < 900; $i++) {
 
 This example create a 100 length size random **RoomDatum** with range value from 0 to 100.
 
-```
+```php
 $dimenY = new timetables\cartesius\Dimensions();
 for ($i = 0; $i < 500; $i++) {
     $data = new \tests\RoomDatum();
