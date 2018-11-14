@@ -1,4 +1,4 @@
-# Timetable
+# Timetables
 
 Timetable algorithm implemented with 2 dimensional cartesius diagram.
 
