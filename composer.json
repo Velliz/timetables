@@ -1,0 +1,21 @@
+{
+  "name": "velliz/timetables",
+  "description": "Timetable algorithm implemented with 2 dimensional cartesius diagram",
+  "type": "library",
+  "version": "0.1.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "velliz",
+      "email": "diditvelliz@outlook.com",
+      "homepage": "http://velliz.github.io",
+      "role": "Lead Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "timetables\\": "src/",
+      "tests\\": "tests/"
+    }
+  }
+}
