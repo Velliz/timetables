@@ -4,10 +4,10 @@ require 'vendor/autoload.php';
 
 $criteriaX = new \tests\TimeDatum();
 $criteriaX->data = 5;
-$criteriaX->closeData = array(4, 6);
+$criteriaX->closeData = [4, 6];
 $criteriaY = new \tests\RoomDatum();
 $criteriaY->data = 93;
-$criteriaY->closeData = array(92, 94);
+$criteriaY->closeData = [92, 94];
 
 $timetable = new \timetables\TimetableDriver();
 
@@ -29,8 +29,6 @@ try {
     $result = $timetable->setCriteriaX($criteriaX)->setCriteriaY($criteriaY)->CalculateTimeTable();
 
     var_dump($result);
-
 } catch (\timetables\cartesius\TimetableException $ex) {
-    die("Timetable fatal error");
+    die('Timetable fatal error');
 }
-

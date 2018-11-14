@@ -3,39 +3,39 @@
 namespace timetables\cartesius;
 
 /**
- * Class Coordinates
- * @package timetables
+ * Class Coordinates.
  */
 class Coordinates
 {
+    /**
+     * @var int
+     */
+    public $x = 0;
 
     /**
      * @var int
      */
-    var $x = 0;
+    public $y = 0;
 
     /**
      * @var int
      */
-    var $y = 0;
-
-    /**
-     * @var int
-     */
-    var $iteration = 0;
+    public $iteration = 0;
 
     /**
      * @param Dimensions $x
      * @param Dimensions $y
+     *
      * @return array
      */
     public function shuffleCoordinate(Dimensions $x, Dimensions $y)
     {
         $this->iteration++;
-        return array(
+
+        return [
             'x' => $this->x = rand(0, ($x->getSize() - 1)),
             'y' => $this->y = rand(0, ($y->getSize() - 1)),
-        );
+        ];
     }
 
     /**
@@ -43,10 +43,10 @@ class Coordinates
      */
     public function getLastCoordinate()
     {
-        return array(
+        return [
             'x' => $this->x,
-            'y' => $this->y
-        );
+            'y' => $this->y,
+        ];
     }
 
     /**
@@ -64,5 +64,4 @@ class Coordinates
     {
         return $this->y;
     }
-
 }

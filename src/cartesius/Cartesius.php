@@ -3,40 +3,38 @@
 namespace timetables\cartesius;
 
 /**
- * Class Cartesius
- * @package timetables
+ * Class Cartesius.
  */
 class Cartesius
 {
+    /**
+     * @var int
+     */
+    public $lastBestX = 0;
 
     /**
      * @var int
      */
-    var $lastBestX = 0;
-
-    /**
-     * @var int
-     */
-    var $lastBestY = 0;
+    public $lastBestY = 0;
 
     /**
      * @var Dimensions
      */
-    var $x;
+    public $x;
 
     /**
      * @var Dimensions
      */
-    var $y;
+    public $y;
 
     /**
      * @var array
      */
-    var $output = array();
+    public $output = [];
 
-    var $limit;
+    public $limit;
 
-    var $iteration = 0;
+    public $iteration = 0;
 
     /**
      * @param Dimensions $d
@@ -56,15 +54,17 @@ class Cartesius
 
     /**
      * @param Coordinates $coordinates
-     * @param Datum $criteriaX
-     * @param Datum $criteriaY
-     * @return array
+     * @param Datum       $criteriaX
+     * @param Datum       $criteriaY
+     *
      * @throws TimetableException
+     *
+     * @return array
      */
     public function Visits(Coordinates $coordinates, Datum $criteriaX, Datum $criteriaY)
     {
         if (!$this->x && $this->y instanceof Dimensions) {
-            throw new TimetableException("Coordinates x and y must set first.");
+            throw new TimetableException('Coordinates x and y must set first.');
         }
         $position = $coordinates->getLastCoordinate();
         $this->limit = $this->x->getSize() * $this->y->getSize();
@@ -72,13 +72,13 @@ class Cartesius
             if ($this->x->get($position['x'])->CalculateFits($criteriaX) === Datum::EQUALS) {
                 $this->x->get($position['x'])->isFits = true;
                 $this->lastBestX = $position['x'];
-            } else if ($this->x->get($position['x'])->CalculateFits($criteriaX) === Datum::CLOSE) {
+            } elseif ($this->x->get($position['x'])->CalculateFits($criteriaX) === Datum::CLOSE) {
                 $this->lastBestX = $position['x'];
             }
             if ($this->y->get($position['y'])->CalculateFits($criteriaY) === Datum::EQUALS) {
                 $this->y->get($position['y'])->isFits = true;
                 $this->lastBestY = $position['y'];
-            } else if ($this->y->get($position['y'])->CalculateFits($criteriaY) === Datum::CLOSE) {
+            } elseif ($this->y->get($position['y'])->CalculateFits($criteriaY) === Datum::CLOSE) {
                 $this->lastBestY = $position['y'];
             }
             if ($this->limit === 0) {

@@ -3,24 +3,22 @@
 namespace timetables\cartesius;
 
 /**
- * Class Datum
- * @package timetables
+ * Class Datum.
  */
 abstract class Datum implements Constraint
 {
-
     /**
      * @var int
      */
-    var $data = null;
+    public $data = null;
 
-    var $closeData = null;
+    public $closeData = null;
 
     /**
      * @var int
-     * calculate how different the compared data values
+     *          calculate how different the compared data values
      */
-    var $dataDifference = 2;
+    public $dataDifference = 2;
 
     const EQUALS = 0;
     const CLOSE = 1;
@@ -28,8 +26,7 @@ abstract class Datum implements Constraint
 
     /**
      * @var bool
-     * If the datum match with criteria, set this value to true
+     *           If the datum match with criteria, set this value to true
      */
-    var $isFits = false;
-
+    public $isFits = false;
 }

@@ -3,37 +3,37 @@
 namespace timetables\cartesius;
 
 /**
- * Class Dimensions
- * @package timetables
+ * Class Dimensions.
  */
 class Dimensions
 {
-
     /**
      * @var array|Datum
      */
-    private $dimension = array();
+    private $dimension = [];
 
     /**
      * @param $key
      * @param $datum
+     *
      * @throws TimetableException
      */
     public function add($key, $datum)
     {
         if (!$datum instanceof Datum) {
-            throw new TimetableException("Dimensions data must instance of Datum");
+            throw new TimetableException('Dimensions data must instance of Datum');
         }
         $this->dimension[$key] = $datum;
     }
 
     public function getSize()
     {
-        return sizeof($this->dimension);
+        return count($this->dimension);
     }
 
     /**
      * @param $index
+     *
      * @return Datum
      */
     public function get($index)
@@ -43,7 +43,6 @@ class Dimensions
 
     public function clear()
     {
-        $this->dimension = array();
+        $this->dimension = [];
     }
-
 }
